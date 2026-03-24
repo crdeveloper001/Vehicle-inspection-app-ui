@@ -17,14 +17,16 @@ import LogoutIcon from "@mui/icons-material/Logout";
 
 //themes config
 import { useTheme } from "@mui/material/styles";
+import { AccountCircle, Group, Home } from "@mui/icons-material";
 
 export default function Sidebar({ mobileOpen, setMobileOpen }: any) {
   const navigate = useNavigate();
   const location = useLocation();
   const theme = useTheme();
   const menu = [
-    { name: "Profile", path: "/dashboard", icon: <PersonIcon /> },
-    { name: "Clients", path: "/clients", icon: <PeopleIcon /> },
+    { name: "My Profile", path: "/profile", icon: <AccountCircle /> },
+    { name: "Home", path: "/dashboard", icon: <Home /> },
+    { name: "Clients", path: "/clients", icon: <Group /> },
     { name: "Reports", path: "/reports", icon: <DescriptionIcon /> },
     { name: "Config Reports", path: "/config", icon: <SettingsIcon /> },
     { name: "Logs", path: "/logs", icon: <ListAltIcon /> },
@@ -32,6 +34,7 @@ export default function Sidebar({ mobileOpen, setMobileOpen }: any) {
   ];
 
   const content = (
+
     <Box
       sx={{
         width: 220,
@@ -48,7 +51,8 @@ export default function Sidebar({ mobileOpen, setMobileOpen }: any) {
             selected={location.pathname === item.path}
             onClick={() => {
               if (item.name === "Log Out") {
-                localStorage.removeItem("token");
+                sessionStorage.removeItem("token");
+                sessionStorage.removeItem("user");
               }
               navigate(item.path);
               setMobileOpen(false);

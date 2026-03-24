@@ -37,6 +37,7 @@ export default function Login() {
 
     if (data.token) {
       sessionStorage.setItem("token", data.token);
+      sessionStorage.setItem("user", JSON.stringify(data.user));
       navigate("/dashboard");
     }
   };

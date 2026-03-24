@@ -10,7 +10,7 @@ import {
   CardContent,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import Sidebar from "../components/sidebar/SideBar";
+import Sidebar from "../components/Sidebar/SideBar";
 import ThemeToggle from "../components/themeToggle/ThemeToggle";
 //iconos
 import DescriptionIcon from "@mui/icons-material/Description";
