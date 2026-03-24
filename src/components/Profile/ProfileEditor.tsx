@@ -46,12 +46,10 @@ const MyProfileEditor: React.FC<MyProfileProps> = ({ user, onSave }) => {
     };
 
     const handleReport = () => {
-        alert("Report sent to admin");
+        alert("Please contact administrator to report any issues with your profile or the application itself. Dev email: crdevelopers506@gmail.com");
     };
 
     return (
-       
-
 
         <Paper sx={{ p: 4, maxWidth: "auto", margin: "auto" }}>
             <Typography variant="h5" mb={3}>

@@ -62,7 +62,7 @@ export default function MyProfileView() {
                             </IconButton>
 
                             <Typography color={theme.palette.text.primary} ml={1}>
-                                Clients
+                                My Profile
                             </Typography>
                         </Box>
 

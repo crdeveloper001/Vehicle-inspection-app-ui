@@ -99,7 +99,7 @@ export default function Dashboard() {
             </IconButton>
 
             <Typography color={theme.palette.text.primary} ml={1}>
-              Dashboard
+              Home
             </Typography>
           </Box>
 
