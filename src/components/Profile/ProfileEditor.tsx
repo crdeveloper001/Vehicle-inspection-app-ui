@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
     Box,
     TextField,
@@ -9,6 +8,7 @@ import {
 } from "@mui/material";
 
 import type User from "../../interfaces/User";
+import { useProfile } from "../../hooks/UseProfile/UseProfile";
 
 interface MyProfileProps {
     user: User;
@@ -16,38 +16,14 @@ interface MyProfileProps {
 }
 
 const MyProfileEditor: React.FC<MyProfileProps> = ({ user, onSave }) => {
-
-    const [editMode, setEditMode] = useState<boolean>(false);
-    const [formData, setFormData] = useState<User>({
-        name: user.name || "",
-        lastName: user.lastName || "",
-        email: user.email || "",
-        phone: user.phone || "",
-        userType: user.userType || "",
-        password: user.password || "",
-    });
-
-    const handleChange = (
-        e: React.ChangeEvent<HTMLInputElement>
-    ) => {
-        const { name, value } = e.target;
-
-        setFormData((prev) => ({
-            ...prev,
-            [name]: value,
-        }));
-    };
-
-    const handleEdit = () => setEditMode(true);
-
-    const handleSave = () => {
-        setEditMode(false);
-        onSave?.(formData);
-    };
-
-    const handleReport = () => {
-        alert("Please contact administrator to report any issues with your profile or the application itself. Dev email: crdevelopers506@gmail.com");
-    };
+    const {
+        editMode,
+        formData,
+        handleChange,
+        handleEdit,
+        handleSave,
+        handleReport,
+    } = useProfile(user, onSave);
 
     return (
 
@@ -58,8 +34,15 @@ const MyProfileEditor: React.FC<MyProfileProps> = ({ user, onSave }) => {
 
             <Stack spacing={2}>
                 <TextField
+                    label="username ID"
+                    name="id"
+                    value={formData._id}
+                    disabled
+                    fullWidth
+                />
+                <TextField
                     label="Name"
-                    name="username"
+                    name="name"
                     value={formData.name}
                     onChange={handleChange}
                     disabled={!editMode}
@@ -100,14 +83,7 @@ const MyProfileEditor: React.FC<MyProfileProps> = ({ user, onSave }) => {
                     disabled
                     fullWidth
                 />
-                <TextField
-                    type="password"
-                    label="Password"
-                    name="password"
-                    value={formData.password}
-                    disabled
-                    fullWidth
-                />
+                
             </Stack>
 
             <Box mt={4} display="flex" justifyContent="space-between">

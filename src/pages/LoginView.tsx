@@ -11,36 +11,25 @@ import {
   DialogContent,
   DialogActions,
   IconButton,
+  Alert,
+  CircularProgress,
 } from "@mui/material";
 import InfoOutlinedIcon from "@mui/icons-material/InfoOutlined";
-import { useNavigate } from "react-router-dom";
 
 import logo from "../assets/logo.png";
+import { useAuthentication } from "../hooks/UseAuthentication/UseAuthentication";
 
 export default function Login() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [open, setOpen] = useState(false);
-
-  const navigate = useNavigate();
-
-  const handleLogin = async () => {
-    const res = await fetch("http://localhost:3000/api/auth/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email, password }),
-    });
-
-    const data = await res.json();
-
-    if (data.token) {
-      sessionStorage.setItem("token", data.token);
-      sessionStorage.setItem("user", JSON.stringify(data.user));
-      navigate("/dashboard");
-    }
-  };
+  const {
+    email,
+    password,
+    loading,
+    error,
+    setEmail,
+    setPassword,
+    login,
+  } = useAuthentication();
 
   return (
     <Box
@@ -73,19 +62,22 @@ export default function Login() {
             </IconButton>
           </Box>
 
-          <Typography
-            variant="body2"
-            color="text.secondary"
-            mb={2}
-          >
+          <Typography variant="body2" color="text.secondary" mb={2}>
             Sistema de inspección Vehicular
           </Typography>
+
+          {error && (
+            <Alert severity="error" sx={{ mb: 2 }}>
+              {error}
+            </Alert>
+          )}
 
           {/* INPUTS */}
           <TextField
             fullWidth
             label="Email"
             margin="normal"
+            value={email}
             onChange={(e) => setEmail(e.target.value)}
           />
 
@@ -94,6 +86,7 @@ export default function Login() {
             label="Contraseña"
             type="password"
             margin="normal"
+            value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
 
@@ -102,9 +95,10 @@ export default function Login() {
             fullWidth
             variant="contained"
             sx={{ mt: 2, py: 1.2 }}
-            onClick={handleLogin}
+            onClick={login}
+            disabled={loading}
           >
-            Ingresar
+            {loading ? <CircularProgress size={20} color="inherit" /> : "Ingresar"}
           </Button>
         </Paper>
       </Container>
