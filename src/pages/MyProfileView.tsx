@@ -4,6 +4,8 @@ import {
     Typography,
     IconButton,
     useTheme,
+    Grid,
+    Item
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 
@@ -23,6 +25,7 @@ export default function MyProfileView() {
         : null;
     return (
         <>
+
 
             <Box display="flex"
                 sx={{
@@ -71,7 +74,7 @@ export default function MyProfileView() {
                     </Box>
 
                     {/* MAIN WINDOW */}
-
+                    
                     <MyProfileEditor user={userSessionData} />
 
                 </Box>

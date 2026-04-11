@@ -1,0 +1,7 @@
+{
+    "Use this json as a template for your environment variables. You can create a .env file in the root of your project and add these variables there. Make sure to replace the values with your actual configuration.": "",
+    "VITE_APP_TITLE": "Vehicle Inspection App / your app name",
+    "VITE_API_TIMEOUT": "30000",
+    "VITE_DEBUG": false,
+    "VITE_API_BASE_URL": "http://localhost:3000/your api endpoint" 
+}
