@@ -2,7 +2,7 @@ import axios from 'axios';
 import { useCallback, useEffect, useState } from 'react';
 import { ClientType } from '../../interfaces/Clients';
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL?.replace(/\/$/, '') || 'http://localhost:3000';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL?.replace(/\/$/, '') || 'https://vehicle-inspection-app-server.onrender.com';
 const CLIENTS_ENDPOINT = `${API_BASE_URL}/api/clients`;
 
 type CreateClientPayload = Omit<ClientType, '_id' | '__v' | 'createdOn'>;

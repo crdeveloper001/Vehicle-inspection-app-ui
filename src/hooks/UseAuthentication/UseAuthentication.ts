@@ -11,7 +11,7 @@ interface UseAuthenticationReturn {
   login: () => Promise<void>;
 }
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || "https://vehicle-inspection-app-server.onrender.com";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL?.replace(/\/$/, '') || 'https://vehicle-inspection-app-server.onrender.com';
 
 export const useAuthentication = (): UseAuthenticationReturn => {
   const [email, setEmail] = useState("");

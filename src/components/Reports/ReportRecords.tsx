@@ -150,8 +150,8 @@ const ReportRecords = () => {
                                             onClick={() => {
                                                 // Open secured/dynamic API endpoint that returns the PDF
                                                 if (!report._id) return; // ensure id exists
-                                                const apiOrigin = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
-                                                const url = `${apiOrigin.replace(/\/$/, '')}/api/inspections/${encodeURIComponent(String(report._id))}/pdf`;
+                                                const API_BASE_URL = import.meta.env.VITE_API_BASE_URL?.replace(/\/$/, '') || 'https://vehicle-inspection-app-server.onrender.com';
+                                                const url = `${API_BASE_URL}/api/inspections/${encodeURIComponent(String(report._id))}/pdf`;
                                                 window.open(url, '_blank', 'noopener,noreferrer');
                                             }}
                                         >
@@ -162,8 +162,8 @@ const ReportRecords = () => {
                                         <IconButton
                                             size="small"
                                             onClick={async () => {
-                                                const apiOrigin = import.meta.env.VITE_API_BASE_URL || 'http://localhost:3000';
-                                                const url = `${apiOrigin.replace(/\/$/, '')}/api/inspections/${encodeURIComponent(String(report._id))}/pdf`;
+                                                const API_BASE_URL = import.meta.env.VITE_API_BASE_URL?.replace(/\/$/, '') || 'https://vehicle-inspection-app-server.onrender.com';
+                                                const url = `${API_BASE_URL}/api/inspections/${encodeURIComponent(String(report._id))}/pdf`;
                                                 if ((navigator as any).share) {
                                                     try {
                                                         await (navigator as any).share({ title: 'Informe', url });

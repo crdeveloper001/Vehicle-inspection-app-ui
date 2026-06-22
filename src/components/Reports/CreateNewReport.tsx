@@ -114,9 +114,9 @@ const CreateNewReport = ({ onSave, loading = false, error = null }: CreateNewRep
     try {
       setClientSearchLoading(true);
       const query = clientSearchQuery.trim();
-      const apiBase = (import.meta as any).env?.VITE_API_BASE || 'http://localhost:3000';
+     const API_BASE_URL = import.meta.env.VITE_API_BASE_URL?.replace(/\/$/, '') || 'https://vehicle-inspection-app-server.onrender.com';
       const response = await fetch(
-        `${apiBase}/api/clients/search?name=${encodeURIComponent(query)}&phone=${encodeURIComponent(query)}`
+        `${API_BASE_URL}/api/clients/search?name=${encodeURIComponent(query)}&phone=${encodeURIComponent(query)}`
       );
       if (!response.ok) {
         throw new Error('Client not found.');
