@@ -8,13 +8,11 @@ import {
 import { useNavigate, useLocation } from "react-router-dom";
 
 // ICONOS
-import PersonIcon from "@mui/icons-material/Person";
-import PeopleIcon from "@mui/icons-material/People";
 import DescriptionIcon from "@mui/icons-material/Description";
 import SettingsIcon from "@mui/icons-material/Settings";
 import ListAltIcon from "@mui/icons-material/ListAlt";
 import LogoutIcon from "@mui/icons-material/Logout";
-
+import logo from "../../assets/logo-removebg-preview.png";
 //themes config
 import { useTheme } from "@mui/material/styles";
 import { AccountCircle, Group, Home } from "@mui/icons-material";
@@ -41,9 +39,26 @@ export default function Sidebar({ mobileOpen, setMobileOpen }: any) {
         height: "100%",
         backgroundColor: theme.palette.background.paper,
         color: theme.palette.text.primary,
-        borderRight: `1px solid ${theme.palette.divider}`, // 👈 CLAVE
+        borderRight: `1px solid ${theme.palette.divider}`, 
       }}
     >
+      <Box
+        sx={{
+          px: 3,
+          py: 4,
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Box
+          component="img"
+          src={logo}
+          alt="App Logo"
+          sx={{ width: 120, height: "auto", backgroundColor: "transparent" }}
+        />
+      </Box>
+
       <List>
         {menu.map((item, i) => (
           <ListItemButton

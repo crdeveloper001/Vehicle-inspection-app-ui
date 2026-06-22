@@ -3,9 +3,7 @@ import {
     Box,
     Typography,
     IconButton,
-    useTheme,
-    Grid,
-    Item
+    useTheme
 } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 
@@ -74,8 +72,8 @@ export default function MyProfileView() {
                     </Box>
 
                     {/* MAIN WINDOW */}
-                    
-                    <MyProfileEditor user={userSessionData} />
+
+                    {userSessionData && <MyProfileEditor user={userSessionData} />}
 
                 </Box>
             </Box>

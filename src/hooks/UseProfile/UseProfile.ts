@@ -19,7 +19,7 @@ interface UseProfileReturn {
 export const useProfile = (
     initialUser: User,
     onSave?: (data: User) => void
-    
+
 ): UseProfileReturn => {
     const [editMode, setEditMode] = useState<boolean>(false);
     const [loading, setLoading] = useState<boolean>(false);
@@ -66,8 +66,13 @@ export const useProfile = (
         );
     };
     const setLogOut = () => {
-        sessionStorage.clear();
-        window.location.href = "/";
+        if (formData.IsPasswordChanged) {
+            sessionStorage.clear();
+            window.location.href = "/";
+        } else {
+            alert("Please change your password before logging out for security reasons. If you are having trouble changing your password, please contact support at")
+        }
+
     };
 
     return {

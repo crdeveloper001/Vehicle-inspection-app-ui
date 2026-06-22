@@ -57,7 +57,7 @@ export default function ClientsView() {
                         </IconButton>
 
                         <Typography color={theme.palette.text.primary} ml={1}>
-                            Clients
+                            Modulo de clientes
                         </Typography>
                     </Box>
 

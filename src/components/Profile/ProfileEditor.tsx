@@ -73,6 +73,13 @@ const MyProfileEditor: React.FC<MyProfileProps> = ({ user, onSave }) => {
         setShowPasswordModal(false);
     };
 
+    const handleCancelPassword = () => {
+        setNewPassword("");
+        setConfirmPassword("");
+        setPasswordError("");
+        setShowPasswordModal(false);
+    };
+
     const handleSaveWithModal = async () => {
         await handleSave();
         setShowSuccess(true);
@@ -273,6 +280,9 @@ const MyProfileEditor: React.FC<MyProfileProps> = ({ user, onSave }) => {
                     />
                 </DialogContent>
                 <DialogActions>
+                    <Button onClick={handleCancelPassword} variant="outlined" color="error">
+                        Cancel
+                    </Button>
                     <Button onClick={handlePasswordChange} variant="contained" color="success">
                         Set Password
                     </Button>
