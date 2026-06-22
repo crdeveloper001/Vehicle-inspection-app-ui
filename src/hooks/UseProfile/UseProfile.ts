@@ -47,10 +47,15 @@ export const useProfile = (
     const handleEdit = () => setEditMode(true);
 
     const handleSave = async () => {
+        const id = formData._id;
+        if (!id) {
+            setError("Missing user ID");
+            return;
+        }
         setLoading(true);
         setError(null);
         try {
-            await profileAPI.updateProfile(formData._id, formData);
+            await profileAPI.updateProfile(id.valueOf(), formData as any);
             setEditMode(false);
             onSave?.(formData);
         } catch (err) {

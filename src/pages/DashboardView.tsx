@@ -17,10 +17,6 @@ import AssessmentIcon from "@mui/icons-material/Assessment";
 import SettingsIcon from "@mui/icons-material/Settings";
 import AccessTimeIcon from "@mui/icons-material/AccessTime";
 
-//import de componentes
-import CreateNewReport from "../components/Reports/CreateNewReport";
-import AddClient from "../components/Clients/AddClient";
-
 //themes config
 import { useTheme } from "@mui/material/styles";
 
