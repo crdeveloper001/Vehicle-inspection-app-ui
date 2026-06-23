@@ -22,13 +22,13 @@ export default function Sidebar({ mobileOpen, setMobileOpen }: any) {
   const location = useLocation();
   const theme = useTheme();
   const menu = [
-    { name: "My Profile", path: "/profile", icon: <AccountCircle /> },
-    { name: "Home", path: "/dashboard", icon: <Home /> },
-    { name: "Clients", path: "/clients", icon: <Group /> },
-    { name: "Reports", path: "/reports", icon: <DescriptionIcon /> },
-    { name: "Config Reports", path: "/config", icon: <SettingsIcon /> },
-    { name: "Logs", path: "/logs", icon: <ListAltIcon /> },
-    { name: "Log Out", path: "/", icon: <LogoutIcon /> },
+    { name: "Mi Perfil", path: "/profile", icon: <AccountCircle /> },
+    { name: "Inicio", path: "/dashboard", icon: <Home /> },
+    { name: "Clientes", path: "/clients", icon: <Group /> },
+    { name: "Reportes", path: "/reports", icon: <DescriptionIcon /> },
+    { name: "Cotizaciones", path: "/quotes", icon: <SettingsIcon /> },
+    { name: "Logs del sistema", path: "/logs", icon: <ListAltIcon /> },
+    { name: "Salir", path: "/", icon: <LogoutIcon /> },
   ];
 
   const content = (

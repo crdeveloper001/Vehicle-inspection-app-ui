@@ -9,9 +9,9 @@ import MenuIcon from '@mui/icons-material/Menu';
 
 import Sidebar from '../components/Sidebar/SideBar';
 import ThemeToggle from '../components/themeToggle/ThemeToggle';
-import LogsRecordsView from '../components/Logs/LogsRecordsView';
+import QuotesRecordView from '../components/Quotes/QuotesRecordView';
 
-export default function LogsView() {
+export default function QuotesView() {
     const theme = useTheme();
     const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -35,6 +35,7 @@ export default function LogsView() {
                     p: 2,
                 }}
             >
+
                 <Box
                     display="flex"
                     justifyContent="space-between"
@@ -50,14 +51,15 @@ export default function LogsView() {
                         </IconButton>
 
                         <Typography color={theme.palette.text.primary} ml={1}>
-                            Modulo de logs
+                            Modulo de cotizaciones
                         </Typography>
                     </Box>
 
                     <ThemeToggle />
                 </Box>
 
-                <LogsRecordsView />
+                <QuotesRecordView />
+
             </Box>
         </Box>
     );

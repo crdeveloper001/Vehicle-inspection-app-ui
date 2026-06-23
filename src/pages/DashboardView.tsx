@@ -1,5 +1,6 @@
 
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Box,
   Typography,
@@ -21,16 +22,38 @@ import AccessTimeIcon from "@mui/icons-material/AccessTime";
 import { useTheme } from "@mui/material/styles";
 
 export default function Dashboard() {
+  const appNavigation = useNavigate();
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const modules = [
-    { title: "Crear Nuevo Reporte de Inspección", icon: <DescriptionIcon />,action: "create_report" },
-    { title: "Crear Cliente Nuevo al Sistema", icon: <PeopleIcon />,action: "create_client" },
-    { title: "Historial de Reportes Actuales", icon: <AssessmentIcon />,action: "view_reports" },
-    { title: "Configuración de reportes de inspeccion", icon: <SettingsIcon />,action: "configure_reports" },
-    { title: "Solicitar Asistencia al Administrador del Sistema", icon: <AccessTimeIcon />,action: "request_assistance" },
+    { title: "Crear Nuevo Reporte de Inspección", icon: <DescriptionIcon />, action: "create_report" },
+    { title: "Crear Cliente Nuevo al Sistema", icon: <PeopleIcon />, action: "create_client" },
+    { title: "Historial de Reportes Actuales", icon: <AssessmentIcon />, action: "view_reports" },
+    { title: "Gestionar Cotizaciones Vehiculares", icon: <SettingsIcon />, action: "view_quotes" },
+    { title: "Solicitar Asistencia al Administrador del Sistema", icon: <AccessTimeIcon />, action: "request_assistance" },
   ];
+
+  const NavigationHandler = (action: String) => {
+
+    switch (action) {
+      case "create_report":
+        appNavigation("/reports");
+        break;
+      case "create_client":
+        appNavigation("/clients");
+        break;
+      case "view_reports":
+        appNavigation("/reports");
+        break;
+      case "view_quotes":
+        appNavigation("/quotes");
+        break;
+      case "request_assistance":
+        alert("Contacto: crdevelopers506@gmail.com");
+        break;
+    }
+  }
 
   return (
 
@@ -103,23 +126,7 @@ export default function Dashboard() {
                 variant="outlined"
                 startIcon={mod.icon}
                 onClick={() => {
-                  switch (mod.action) {
-                    case "create_report":
-                      window.location.href = "/reports"; // Redirige a la página de creación de reportes
-                      break;
-                    case "create_client":
-                      window.location.href = "/clients"; // Redirige a la página de creación de clientes
-                      break;
-                    case "view_reports":
-                      window.location.href = "/reports"; // Redirige a la página de reportes
-                      break;
-                    case "configure_reports":
-                      window.location.href = "/config"; // Redirige a la página de configuración
-                      break;
-                    case "request_assistance":
-                      alert("Contacto: crdeveloper506@gmail.com");
-                      break;
-                  }
+                  NavigationHandler(mod.action);
                 }}
                 sx={{
                   justifyContent: "flex-start",
