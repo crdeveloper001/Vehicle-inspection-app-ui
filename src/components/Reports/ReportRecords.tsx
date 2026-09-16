@@ -25,7 +25,7 @@ import CreateNewReport from './CreateNewReport';
 // initial empty list; real data loaded from API via useReports
 const mockReports: PurchaseReport[] = [];
 
-const ReportRecords = () => {
+const InspectionsReports = () => {
     const theme = useTheme();
     const [reports, setReports] = useState<PurchaseReport[]>(mockReports);
     const [search, setSearch] = useState<string>('');
@@ -207,4 +207,4 @@ const ReportRecords = () => {
     );
 };
 
-export default ReportRecords;
+export default InspectionsReports;

@@ -9,7 +9,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 
 import Sidebar from '../components/Sidebar/SideBar';
 import ThemeToggle from '../components/themeToggle/ThemeToggle';
-import ReportsRecords from '../components/Reports/ReportRecords';
+import InspectionsReports from '../components/Reports/ReportRecords';
 
 export default function ReportsView() {
     const theme = useTheme();
@@ -57,7 +57,8 @@ export default function ReportsView() {
                     <ThemeToggle />
                 </Box>
 
-                <ReportsRecords />
+                <InspectionsReports />
+               
 
             </Box>
         </Box>
